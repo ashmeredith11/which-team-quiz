@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Which Team Is Right For Me? | Ash Meredith</title>
+<meta name="description" content="Team Lean or Team Define? Take the quiz to find your training path inside Lean & Defined Legs." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Which Team Is Right For Me? | Ash Meredith" />
+<meta property="og:description" content="Team Lean or Team Define? Take the quiz to find your training path inside Lean & Defined Legs." />
+<meta property="og:url" content="https://ashmeredith11.github.io/which-team-quiz/" />
+<meta property="og:image" content="https://ashmeredith11.github.io/which-team-quiz/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Which Team Is Right For Me? | Ash Meredith" />
+<meta name="twitter:description" content="Team Lean or Team Define? Take the quiz to find your training path inside Lean & Defined Legs." />
+<meta name="twitter:image" content="https://ashmeredith11.github.io/which-team-quiz/og-image.png" />
+<style>
+  :root{
+    --cream:#FAF6F1;
+    --card:#FFFFFF;
+    --ink:#2B2622;
+    --ink-soft:#6B6259;
+    --line:#E9E1D8;
+    --lean:#7C8B6F;
+    --lean-soft:#EEF1E9;
+    --define:#B5583A;
+    --define-soft:#F7E9E4;
+    --accent:#C97B63;
+    --shadow: 0 20px 50px rgba(43,38,34,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 10%, #F3ECE2 0%, transparent 45%),
+      radial-gradient(circle at 90% 85%, #F1E7DC 0%, transparent 40%),
+      var(--cream);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .sans{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .wrap{
+    width:100%;
+    max-width:600px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:40px 36px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--accent);
+    text-align:center;
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:30px;
+    line-height:1.2;
+    text-align:center;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+  .sub{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+    margin:0 0 28px;
+  }
+  .intro-note{
+    background:var(--lean-soft);
+    border-radius:14px;
+    padding:16px 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:1.65;
+    color:#4B5540;
+    margin-bottom:28px;
+  }
+  .btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:15px 20px;
+    border-radius:100px;
+    border:none;
+    cursor:pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.01em;
+    transition:transform 0.15s ease, opacity 0.15s ease;
+    text-decoration:none;
+  }
+  .btn:active{ transform:scale(0.98); }
+  .btn-primary{
+    background:var(--ink);
+    color:#fff;
+  }
+  .btn-primary:hover{ opacity:0.9; }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink-soft);
+    font-weight:600;
+    font-size:13.5px;
+    padding:10px;
+  }
+  .progress-track{
+    width:100%;
+    height:5px;
+    background:var(--line);
+    border-radius:10px;
+    margin-bottom:28px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:var(--accent);
+    border-radius:10px;
+    transition:width 0.35s ease;
+  }
+  .step-label{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-align:center;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .question{
+    font-size:23px;
+    line-height:1.35;
+    text-align:center;
+    margin:0 0 26px;
+    font-weight:400;
+  }
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .option{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-align:left;
+    padding:18px 20px;
+    border-radius:16px;
+    border:1.5px solid var(--line);
+    background:#FFFDFB;
+    cursor:pointer;
+    font-size:15px;
+    line-height:1.5;
+    color:var(--ink);
+    transition:all 0.15s ease;
+  }
+  .option:hover{
+    border-color:var(--accent);
+    background:#FBF2ED;
+  }
+  .screen{ display:none; }
+  .screen.active{ display:block; }
+
+  .result-badge{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display:inline-block;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:12px;
+    font-weight:800;
+    padding:7px 16px;
+    border-radius:100px;
+    margin-bottom:16px;
+  }
+  .badge-lean{ background:var(--lean-soft); color:#4B5540; }
+  .badge-define{ background:var(--define-soft); color:#8C3F27; }
+  .badge-tie{ background:#F1E9DE; color:#8A6A3A; }
+
+  .result-head{ text-align:center; }
+  h2.result-title{
+    font-size:28px;
+    margin:0 0 16px;
+    font-weight:400;
+  }
+  p.result-desc{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    text-align:left;
+    margin:0 0 20px;
+  }
+  .focus-list{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    list-style:none;
+    padding:0;
+    margin:0 0 22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .focus-list li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14.5px;
+    line-height:1.55;
+    color:var(--ink);
+  }
+  .dot{
+    flex:0 0 auto;
+    width:7px; height:7px;
+    border-radius:50%;
+    margin-top:7px;
+  }
+  .dot-lean{ background:var(--lean); }
+  .dot-define{ background:var(--define); }
+
+  .reminder{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:13.5px;
+    line-height:1.65;
+    color:var(--ink-soft);
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    margin-bottom:26px;
+  }
+  .nutrition-note{
+    background:#FBF1E7;
+    border-radius:14px;
+    padding:18px 20px;
+    margin-bottom:22px;
+  }
+  .nutrition-eyebrow{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:11px;
+    font-weight:800;
+    color:#9C6B34;
+    margin-bottom:8px;
+  }
+  .nutrition-note p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:1.65;
+    color:#5C4A32;
+    margin:0;
+  }
+
+  .cta-card{
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:24px 22px;
+    margin-bottom:16px;
+  }
+  .cta-eyebrow{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:11px;
+    font-weight:800;
+    color:var(--accent);
+    margin-bottom:8px;
+    text-align:center;
+  }
+  .cta-title{
+    font-size:20px;
+    text-align:center;
+    margin:0 0 4px;
+    font-weight:400;
+  }
+  .cta-price{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-align:center;
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .cta-price strong{ color:var(--ink); font-size:16px; }
+  .cta-points{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    list-style:none;
+    padding:0;
+    margin:0 0 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .cta-points li{
+    font-size:13.5px;
+    color:var(--ink);
+    display:flex;
+    gap:8px;
+  }
+  .arrow{ color:var(--accent); font-weight:700; }
+
+  .footer-note{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    text-align:center;
+    font-size:11.5px;
+    color:#A69C90;
+    margin-top:18px;
+    line-height:1.6;
+  }
+
+  @media (max-width:480px){
+    .card{ padding:30px 22px; border-radius:18px; }
+    h1{ font-size:25px; }
+    .question{ font-size:20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+
+    <!-- INTRO -->
+    <div class="screen active" id="screen-intro">
+      <div class="eyebrow">Lean &amp; Defined Legs Challenge</div>
+      <h1>Which team is right for you?</h1>
+      <p class="sub">Team Lean or Team Define. Five quick questions to help you choose your training path.</p>
+      <div class="intro-note">
+        This is a whole-body program: Pilates, Barre, upper body and deep core work every week, for both teams. The only thing that changes between Team Lean and Team Define is your lower-body focus, and that comes down to your starting point and how your body responds to training, not what's "right" or "wrong." Answer honestly and we'll point you to yours.
+      </div>
+      <button class="btn btn-primary" onclick="startQuiz()">Start the quiz</button>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="screen" id="screen-quiz">
+      <div class="step-label" id="step-label">Question 1 of 5</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:20%"></div></div>
+      <div class="question" id="question-text"></div>
+      <div class="options" id="options-wrap"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="screen" id="screen-result">
+      <div class="result-head">
+        <span class="result-badge" id="result-badge">You're Team Lean</span>
+        <h2 class="result-title" id="result-title">Team Lean</h2>
+      </div>
+      <p class="result-desc" id="result-desc"></p>
+      <ul class="focus-list" id="result-focus"></ul>
+      <div class="reminder" id="result-reminder"></div>
+
+      <div class="nutrition-note">
+        <div class="nutrition-eyebrow">Whichever team you're on</div>
+        <p>Nutrition carries just as much weight as your training. Your workouts create the stimulus, and your nutrition supports the change, helping you lose body fat, build muscle and recover between sessions. That's why the challenge includes a dietitian-designed nutrition guide and meal plan alongside both training paths.</p>
+      </div>
+
+      <div class="cta-card">
+        <div class="cta-eyebrow">Lean &amp; Defined Legs Challenge</div>
+        <div class="cta-title">Enrolment's open now</div>
+        <div class="cta-price"><strong>$69</strong> one payment, lifetime access (was $79)</div>
+        <ul class="cta-points">
+          <li><span class="arrow">&rarr;</span> Whole-body training: Pilates, Barre, upper body and deep core, every week, not just legs.</li>
+          <li><span class="arrow">&rarr;</span> Both training paths included. Switch anytime.</li>
+          <li><span class="arrow">&rarr;</span> Metabolism and hormone dietitian-designed nutrition guide and meal plan, focusing on whole foods, carb cycling and anti-inflammatory meals.</li>
+          <li><span class="arrow">&rarr;</span> We start August 17. Content drops 72 hours before.</li>
+          <li><span class="arrow">&rarr;</span> $1,000 in cash prizes for best transformations.</li>
+          <li><span class="arrow">&rarr;</span> 30-day money-back guarantee.</li>
+        </ul>
+        <a class="btn btn-primary" href="https://www.solin.stream/ashmeredith11/program/7441" target="_blank" rel="noopener">Join on Solin</a>
+      </div>
+
+      <button class="btn btn-ghost" onclick="restartQuiz()">Retake the quiz</button>
+      <div class="footer-note">Based on the Which Team Is Right For Me guide inside Lean &amp; Defined Legs &middot; @ashmeredith11</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  var questions = [
+    {
+      text: "Which sounds more like your legs right now?",
+      options: [
+        { label: "I build muscle here pretty easily, or I've already got good muscle through my legs", team: "lean" },
+        { label: "I want more definition in my legs, they feel a bit \"skinny fat\"", team: "define" }
+      ]
+    },
+    {
+      text: "What are you hoping training helps you feel?",
+      options: [
+        { label: "Leaner and more toned, without adding extra size", team: "lean" },
+        { label: "More shape and definition, fuller through the glutes", team: "define" }
+      ]
+    },
+    {
+      text: "How do you feel about lifting heavier over time?",
+      options: [
+        { label: "I'd rather stick with lighter resistance", team: "lean" },
+        { label: "I don't mind progressively lifting heavier if it helps me look more lean and defined", team: "define" }
+      ]
+    },
+    {
+      text: "Pick your ideal strength workout style (Pilates & Barre are follow along anyway).",
+      options: [
+        { label: "Follow along with me, anywhere, anytime", team: "lean" },
+        { label: "Demonstration-style, so I can work at my own pace and track my sets", team: "define" }
+      ]
+    },
+    {
+      text: "How do you feel about walking and your daily steps?",
+      options: [
+        { label: "I want that to be a big part of my routine", team: "lean" },
+        { label: "I don't get much time for daily steps, and I won't be able to prioritise it", team: "define" }
+      ]
+    }
+  ];
+
+  var current = 0;
+  var score = { lean: 0, define: 0 };
+
+  function startQuiz(){
+    current = 0;
+    score = { lean: 0, define: 0 };
+    show('screen-quiz');
+    renderQuestion();
+  }
+
+  function restartQuiz(){
+    show('screen-intro');
+  }
+
+  function show(id){
+    var screens = document.querySelectorAll('.screen');
+    for (var i = 0; i < screens.length; i++){
+      screens[i].classList.remove('active');
+    }
+    document.getElementById(id).classList.add('active');
+  }
+
+  function renderQuestion(){
+    var q = questions[current];
+    document.getElementById('step-label').textContent = 'Question ' + (current + 1) + ' of ' + questions.length;
+    document.getElementById('progress-fill').style.width = (((current + 1) / questions.length) * 100) + '%';
+    document.getElementById('question-text').textContent = q.text;
+
+    var wrap = document.getElementById('options-wrap');
+    wrap.innerHTML = '';
+    q.options.forEach(function(opt){
+      var btn = document.createElement('button');
+      btn.className = 'option';
+      btn.textContent = opt.label;
+      btn.onclick = function(){ selectAnswer(opt.team); };
+      wrap.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(team){
+    score[team] += 1;
+    current += 1;
+    if (current < questions.length){
+      renderQuestion();
+    } else {
+      renderResult();
+    }
+  }
+
+  function renderResult(){
+    var badge = document.getElementById('result-badge');
+    var title = document.getElementById('result-title');
+    var desc = document.getElementById('result-desc');
+    var focus = document.getElementById('result-focus');
+    var reminder = document.getElementById('result-reminder');
+
+    var leanFocus = [
+      "Strength that's built and maintained, not progressively loaded",
+      "Daily walking and hitting your step goal",
+      "Pilates for deep core, stability and posture",
+      "Barre for muscular endurance and control",
+      "Follow-along workouts, home or travel friendly"
+    ];
+    var defineFocus = [
+      "Training that gradually gets heavier, so you build shape over time",
+      "Demonstration-style sessions with in-app weight tracking",
+      "Pilates for deep core, stability and posture",
+      "Barre for muscular endurance and control",
+      "Building shape and definition through your glutes and legs"
+    ];
+
+    focus.innerHTML = '';
+
+    if (score.lean === score.define){
+      badge.className = 'result-badge badge-tie';
+      badge.textContent = "It's a close call";
+      title.textContent = 'You could suit either path';
+      desc.textContent = "Your answers landed evenly between both teams, and that's alright. You get lifetime access to both Team Lean and Team Define, so you can start with whichever goal feels closer to you right now and switch anytime.";
+      var mixed = [leanFocus[0], defineFocus[0], leanFocus[1], defineFocus[4]];
+      // Keep it simple: show both focus lists side by side conceptually via combined bullets
+      focus.innerHTML = '<li><span class="dot dot-lean"></span>Team Lean: strength that\'s maintained, walking, Pilates and Barre</li><li><span class="dot dot-define"></span>Team Define: gradually increasing load, Pilates and Barre for more shape</li>';
+    } else if (score.lean > score.define){
+      badge.className = 'result-badge badge-lean';
+      badge.textContent = "You're Team Lean";
+      title.textContent = 'Team Lean';
+      desc.textContent = "Team Lean suits women who build muscle easily through their legs, or who already carry plenty of lower-body muscle. The goal here isn't to add more size, it's to create a leaner-looking lower body while keeping the strength you've already got.";
+      leanFocus.forEach(function(item){
+        var li = document.createElement('li');
+        li.innerHTML = '<span class="dot dot-lean"></span>' + item;
+        focus.appendChild(li);
+      });
+    } else {
+      badge.className = 'result-badge badge-define';
+      badge.textContent = "You're Team Define";
+      title.textContent = 'Team Define';
+      desc.textContent = "Team Define is for women who want more shape and definition through their glutes and legs. Training is progressive, so the weight you're lifting gradually increases across the six weeks to help you get there.";
+      defineFocus.forEach(function(item){
+        var li = document.createElement('li');
+        li.innerHTML = '<span class="dot dot-define"></span>' + item;
+        focus.appendChild(li);
+      });
+    }
+
+    reminder.textContent = "There isn't a right or wrong choice here. Both paths lead to the same place, a stronger, leaner, more defined lower body, just by a different route. Goals change as your body does, and that's normal, so you'll have lifetime access to both teams and can switch whenever it feels right.";
+
+    show('screen-result');
+  }
+</script>
+
+</body>
+</html>
